@@ -1,0 +1,532 @@
+/* 
+.abc{
+    background-color: white;   
+    padding: 5px;
+    display: inline-block;
+    position: relative;
+
+}
+.abc:hover::after{
+    opacity: 1;
+    transition-duration: 0.3s;
+}
+.abc::after{
+    content: '';
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid white;
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: -1.5rem;
+    left: 0;
+    opacity: 0;
+    transition-duration: 0.3s;
+} */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+  background-color: #1B2838;
+
+}
+/* nav-bar */
+.header-container{
+  background-color: #171A21;
+  width: 100%;
+  height: 104px;
+  /* padding: 0 16px; */
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  margin: 0px auto;
+  width: 940px;
+  height: 104px;
+}
+
+.logo{
+  width: 175px;
+}
+.nav-links{
+  display: inline;
+}
+.nav-links a{
+  font-family:sans-serif;
+  text-decoration: none;
+  color: #b8b6b4;
+  font-size: 14px;
+  padding: 0px 7px;
+}
+.store{
+  position: relative;
+}
+.cm{
+  position: relative;
+}
+.store:hover .store-dropdown, .cm:hover .cm-dropdown{
+  display: block;
+}
+.link:hover > a{
+  color: #ffffff;
+}
+.link{
+  display: inline;
+}
+.store-dropdown{
+  position: absolute;
+  flex-direction: column;
+  height: auto;
+  width: 150px;
+  background-color: #171A21;
+  display: none;
+  top: 16px;
+  box-shadow: 3px 3px 5px -3px #000;
+  z-index: 10;
+}
+.cm-dropdown{
+  position: absolute;
+  display: none;
+  height: auto;
+  width: 150px;
+  top: 16px;
+  left: 0;
+  background-color: #171A21;
+  box-shadow: 3px 3px 5px -3px #000;
+  z-index: 10;
+}
+.store-dropdown a, .cm-dropdown a{
+  font-size: 11px;
+  line-height: 25px;
+  display: block;
+  padding: 0 15px;
+  
+}
+.store-dropdown a:first-child, .cm-dropdown a:first-child{
+  padding-top: 10px;
+}
+.store-dropdown a:last-child, .cm-dropdown a:last-child{
+  padding-bottom: 10px;
+}
+
+.store-dropdown > a:hover, .cm-dropdown > a:hover{
+  color: #ffffff;
+}
+.global-action{
+  color: #b8b6b4;
+  position: absolute;
+  top: 4px;
+  right: 0px;
+}
+.global-action a {
+  font-family:sans-serif;
+  text-decoration: none;
+  color: #b8b6b4;
+  font-size: 12px;
+}
+.install-steam{
+  background-color: #5c7e10;
+  color: #e5e4dc;
+  background-image: url('https://store.cloudflare.steamstatic.com/public/shared/images/header/btn_header_installsteam_download.png?v=1');
+  background-repeat: no-repeat;
+  padding-right: 9px;
+  padding-left: 35px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-position: 10px 5px;
+  cursor: pointer;
+  font-size: 11px;
+  border: none;
+}
+.install-steam:hover{
+  color: #ffffff;
+}
+
+/* end Nav-bar */
+/* body navbar */
+.homepage-body{
+  width: 100%;
+  height: auto;
+  background-color: #1B2838;
+  position: relative;
+}
+.body-header{
+  height: 100%;
+  width: 100%;
+}
+.video-banner{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.homepage-nav{
+  /* background-image: linear-gradient(180deg, #2A475E 0%, #1B2838 80%); */
+  background-image: linear-gradient(90deg, rgba(62, 103, 150, 0.918) 11.38%, rgba(58, 120, 177, 0.8) 25.23%, rgb(15, 33, 110) 100%);
+  max-width: 940px;
+  
+  /* padding: 10px; */
+  opacity: 0.9;
+  position: absolute;
+  top: 25px;
+  /*left: 50%;
+  transform: translate(-50%, 0) */
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+.homepage-nav-tab, .nav-search{
+  display: inline-block;
+}
+.homepage-nav-tab{
+  line-height: 35px;
+  padding: 0 10px;
+}
+.homepage-nav-tab:hover{
+  background: linear-gradient(90deg, rgba(33, 162, 255, 0.25) 0%, rgba(33, 162, 255, 0.15) 50%, rgba(50, 50, 51, 0) 100%);
+  text-shadow: 0px 2px 3px rgb(0 0 0 / 30%);
+  color: #ffffff;
+  cursor: pointer;
+}
+.homepage-nav-tab:hover a, .homepage-nav-tab:hover{
+ color: #ffffff;
+}
+
+.home-nav-btn{
+  display: inline;
+  color: #e5e5e5;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  /* padding: 5px 10px;
+  height: 39px; */
+}
+
+.nav-search{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  margin-right: 3px;
+}
+#search-box{
+  padding: 5px;
+  padding-right: 27px;
+  border: none;
+  background-color: #316282;
+  border-radius: 3px;
+  border: 1px solid rgba( 0, 0, 0, 0.3);
+  box-shadow: 1px 1px 0px rgb(255 255 255 / 20%);
+  color: #fff;
+  outline: none;
+}
+#search-box:hover{
+  border: 1px solid #4c9acc;
+  box-shadow: 1px 1px 0px rgb(255 255 255 / 0%);
+}
+
+.search-btn{
+  width: 25px;
+  height: 25px;
+  margin-left: -25px;
+  border: none;
+  background-color: #4c9acc;
+}
+.search-btn:hover{
+  background-color: #B3DFFF;
+}
+
+/* main  */
+.main-wrap {
+  width: 950px;
+  min-height: 1000px;
+  min-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #F5F5F5;
+  position: relative;
+}
+
+.sidebar {
+  padding-top: 20px;
+  width: 210px;
+  height: 1000px;
+  position: absolute;
+  left: -236px;
+}
+.sidebar img {
+  width: 210px;
+  margin-left: 0px;
+}
+.sidebar h5 {
+  font-size: 11px;
+  font-family: sans-serif;
+  color: #c6d4df;
+  padding: 15px 0 7px 0;
+}
+.sidebar a {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: #66c0f4;
+  margin: 0 0 7px 0;
+  font-size: 13px;
+  display: block;
+}
+.sidebar a:hover {
+  color: white;
+}
+
+.main {
+  float: left;
+  min-width: 950px;
+  width: 950px;
+  max-width: 950px;
+}
+
+.title{
+  font-family: sans-serif;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+#slideshow-container{
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
+}
+
+.prev {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: -41px;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 3px 0px 0px 3px;
+  user-select: none;
+}
+
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  right: -41px;
+  /* border-radius: 3px 0 0 3px; */
+}
+
+.prev:hover{
+  background: linear-gradient(to right, rgba(171, 218, 244, 0.3) 5%, rgba(171, 218, 244, 0) 95%);
+}
+.next:hover{
+  background: linear-gradient( to right, rgba( 171, 218, 244, 0) 5%,rgba( 171, 218, 244, 0.3) 95%)
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 9px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: hsla(202,60%,100%,0.2);
+  border-radius: 2px;
+  display: inline-block;
+  transition: background-color 0.2s;
+}
+
+.active, .dot:hover {
+  background-color: hsla(202,60%,100%,0.3);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+.featured {
+  display: none;
+  width: 100%;
+  height: 333px;
+  box-shadow: 2px 0px 9px black;
+  
+}
+
+.featured-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url("https://store.akamai.steamstatic.com/public/images/v6/home/background_maincap_2.jpg");
+  background-color: #171a21;
+  padding: 0 37px;
+  width: 25%;
+}
+
+
+.featured-image{
+width: 75%;
+}
+.featured-image  img{
+  width: 100%;
+}
+.tomb-title{
+  padding-left: 10px;
+  font-family: sans-serif;
+}
+
+
+.tomb-title h2{
+  font-size: 1.2em;
+  padding: 10px 0;
+}
+.feature-images-small {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: center;
+  flex-direction: column;
+}
+.feature-images-small img {
+  margin: 3px 3px;
+  width: 160px;
+  height: 70px;
+}
+
+.tomb-bottom {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  font-family: sans-serif;
+}
+
+.tomb-bottom h3{
+  font-size: 1em;
+  /* padding-bottom: 10px; */
+  margin-bottom: 10px;
+}
+.tomb-bottom .bottom-text {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+
+.special {
+  display: flex;
+  width: 100%;
+  height: 380px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.special .special-image {
+  width: 100%;
+  height: 260px;
+}
+.special h5 {
+  font-family: sans-serif;
+  font-size: 14px;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+.special p {
+  font-family: sans-serif;
+  font-size: 12px;
+  color: #acdbf5;
+  padding: 5px 0 10px 10px;
+  margin: 15px 0 5px 0;
+  
+}
+.special .price {
+  font-family: sans-serif;
+  padding-left: 10px;
+}
+
+.special1 {
+  background-image: url("https://store.steampowered.com/public/images/v6/home/background_spotlight.jpg");
+}
+
+.special3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.special3-1 {
+  background-image: url("https://store.steampowered.com/public/images/v6/home/background_spotlight.jpg");
+  height: 185px;
+}
+.special3-1 .price {
+  float: right;
+  padding-right: 10px;
+}
+/* bodynav end */
+/* game menu */
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+
+.tab{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  /* display: none; */
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  
+}

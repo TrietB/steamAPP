@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Document</title>
+</head>
+<body>
+<header class="header-container">
+    <div class="content">
+      <img src="./assets/logo_steam.svg" alt="" class="logo">
+      <div class="nav-links">
+        <div class="link store">
+        <a href="">STORE</a>
+        <div class="store-dropdown">
+          <a href="#">HOME</a>
+          <a href="#">DISCOVERY QUEUE</a>
+          <a href="#">WISHLIST</a>
+          <a href="#">POINTS SHOP</a>
+          <a href="#">NEWS</a>
+          <a href="#">STATS</a>
+        </div>
+        </div>
+        <div class="link cm">
+        <a href="">COMMUNITY</a>
+        <div class="cm-dropdown">
+          <a href="#">HOME</a>
+          <a href="#">DISCUSSION</a>
+          <a href="#">WORKSHOP</a>
+          <a href="#">MARKET</a>
+          <a href="#">BROADCASTS</a>
+        </div>
+        </div>
+        <div class="link">
+        <a href="">ABOUT</a>
+        </div>
+        <div class="link">
+        <a href="">SUPPORT</a>
+        </div>
+      </div>
+      <div class="global-action">
+        <button class="install-steam">Install Steam</button>
+        <a href="">login</a>
+        &nbsp;|&nbsp;
+        <a href="">language</a>
+      </div>
+    </div>
+</header>
+<section class="homepage-body">
+  <video autoplay muted preload="auto" loop src="./assets/webm_page_bg_english.webm" class="video-banner" ></video>
+  <div class="body-header">
+    <div class="homepage-nav">
+      <div class="homepage-nav-tab"><a href="" class="home-nav-btn">Your Store</a></div>
+      <div class="homepage-nav-tab"><a href="" class="home-nav-btn">New & Noteworthy</a></div>
+      <div class="homepage-nav-tab"><a href="" class="home-nav-btn">Categories</a></div>
+      <div class="homepage-nav-tab"><a href="" class="home-nav-btn">Point Shop</a></div>
+      <div class="homepage-nav-tab"><a href="" class="home-nav-btn">News</a></div>
+      <div class="homepage-nav-tab"><a href="" class="home-nav-btn">Labs</a></div>
+      <div class="nav-search"><input type="text" name="" id="search-box" placeholder="search"><button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button></i></div>
+    </div>
+  </div>
+</section>
+<!-- main -->
+<section class="main-wrap">
+  <div class="sidebar">
+    <img src="https://steamstore-a.akamaihd.net/public/images//gift/steamcards_promo_02.png" alt="">
+    <h5>GIFT CARDS</h5>
+    <a href="#">Now Available on Steam</a>
+    <h5>RECOMMENDED</h5>
+    <a href="#">By Friends</a>
+    <a href="#">By Curators</a>
+    <a href="#">Tags</a>
+    <h5>DISCOVERY QUEUES</h5>
+    <a href="#">Recommendations</a>
+    <a href="#">New Releases</a>
+    <h5>BROWSE CATEGORIES</h5>
+    <a href="#">Top Sellers</a>
+    <a href="#">Recently Updated</a>
+    <a href="#">New Releases</a>
+    <a href="#">Upcoming</a>
+    <a href="#">Specials</a>
+    <a href="#">Virtual Reality</a>
+    <a href="#">Steam Controller Friendly</a>
+    <h5>BROWSE BY GENRE</h5>
+    <a href="#">Free to Play</a>
+    <a href="#">Early Access</a>
+    <a href="">Action</a>
+    <a href="#">Adventure</a>
+    <a href="#">Casual</a>
+    <a href="#">Indie</a>
+    <a href="#">Massively Multiplayer</a>
+    <a href="#">Racing</a>
+    <h5>RECENTLY VIEWED</h5>
+    <a href="#">Aztez</a>
+    <a href="#">Tooth and Tail</a>
+    <a href="#">RimWorld</a>
+  </div>
+
+  <div class="main">
+    <!-- featured section -->
+    <h3 class="title">FEATURED & RECOMMENDED</h3>
+  <div id="slideshow-container">  
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+
+<!-- The dots/circles -->
+  <div id="dot-arr" style="text-align:center">
+    
+  </div>
+    <!-- special section -->
+    <h3 class="title">SPECIAL OFFERS</h3>
+    <div class="special">
+      <div class="special1">
+        <img src="./assets/img/mddesert.PNG" alt=""class="special-image">
+        <h5>FREE WEEKEND</h5>
+        <p>Play for free until Sunday at 1PM PST</p>
+        <img src="./assets/img/price.PNG" alt="" class="price">
+      </div>
+      <div class="special1">
+        <img src="./assets/img/mddivision.PNG" alt="" class="special-image">
+        <h5>FREE WEEKEND</h5>
+        <p>Play for free until Sunday at 1PM PST</p>
+        <img src="./assets/img/price.PNG" alt="" class="price">
+      </div>
+      <div class="special3">
+        <div class="special3-1">
+          <img src="./assets/img/mdshorthell.PNG" alt="">
+          <div class="special-text">
+            <img src="./assets/img/price.PNG" alt="" class="price">
+          </div>
+        </div>
+        <div class="special3-1">
+          <img src="./assets/img/mdshortwizard.PNG" alt="">
+          <div class="special-text">
+            <img src="./assets/img/price.PNG" alt="" class="price">
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</section>
+
+<section class="game-menu">
+  <!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'trending')">New & Trending</button>
+  <button class="tablinks" onclick="openCity(event, 'top')">Top Sellers</button>
+  <button class="tablinks" onclick="openCity(event, 'popular')">Popular Upcoming</button>
+  <button class="tablinks" onclick="openCity(event, 'special')">Special</button>
+
+</div>
+
+<!-- Tab content -->
+<div id="trending" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="top" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+</div>
+
+<div id="popular" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+<div id="special" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+</section>
+<script src="./index.js"></script>
+</body>
+</html>
