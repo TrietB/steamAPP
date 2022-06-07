@@ -247,7 +247,7 @@ body{
 /* main  */
 .main-wrap {
   width: 950px;
-  min-height: 1000px;
+  min-height: 900px;
   min-width: 950px;
   margin-left: auto;
   margin-right: auto;
@@ -488,45 +488,119 @@ width: 75%;
 }
 /* bodynav end */
 /* game menu */
+.game-menu{
+  background-color: #2a475e;
+}
+
+
 /* Style the tab */
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background-color: #1B2838;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
-  background-color: inherit;
+  background-color: #1B2838 ;
   float: left;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px ;
 }
 
 
 .tab{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
+  /* position: relative; */
+  width: 442px;
+  margin: 0 auto;
+  /* background: #1B2838; */
+  border: none;
+  /* border-radius: 10px; */
+
+}
+.bd-left, .bd-left:hover, .bd-left.active{
+  border-top-left-radius: 0px;
+  background-color: #2a475e;
+}
+/* .bd-left:hover{
+  border-top-left-radius: 0px;
+
+} */
+.bd-right, .bd-right:hover{
+  border-top-right-radius: 0px;
+}
+.bd-left.active{
+  background-color: #2a475e;
 }
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: #2a475e;
+
 }
 
 /* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
+/* .tab button.active {
+  background-color: #2a475e;
+  
+} */
 
 /* Style the tab content */
 .tabcontent {
-  /* display: none; */
-  padding: 6px 12px;
-  border: 1px solid #ccc;
+  /* position: absolute; */
+  display: none;
+  /* border: 1px solid black; */
   border-top: none;
-  
+  left: 0;
+  right: 0;
+  max-width: 800px;
+  margin: 0 auto;
 }
+/* game item */
+.item{
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 800px;
+  /* border: 1px solid black; */
+  margin-top: 6px;
+  background: rgba( 0, 0, 0, 0.2 );
+  position: relative;
+}
+.item p, .item h3{
+  color: #c7d5e0;
+}
+
+.item h3{
+  margin: 12px 0 10px 10px;
+}
+.item p{
+  margin: 12px 0 10px 10px;
+
+}
+.item-img{
+  height: 148px;
+}
+.item-img img{
+height: 100%;
+/* width: 307px;   */
+}
+.item-desc{
+  height: auto;
+}
+
+.item-price{
+  position: absolute;
+  right: 0;
+  top: 35%;
+}
+
+
