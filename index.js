@@ -47,7 +47,7 @@ async function getFeaturedGames(){
         const featuredGames = await fetch(FEATURED_API, requestOptions)
         if(featuredGames.ok){
             const data = await featuredGames.json()
-            console.log('games', data)
+            console.log('featured', data)
             return data
         }
     } catch (error) {
@@ -148,12 +148,12 @@ function openCity(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 
-async function getGameByGenre (){
+async function getGame (){
   try {
-      const gameByGenre = await fetch(`${ALL_GAMES_API}&page=10`, requestOptions)
+      const gameByGenre = await fetch(`${ALL_GAMES_API}?page=2&limit=10`, requestOptions)
       if(gameByGenre.ok){
           const data = await gameByGenre.json()
-          console.log('genre', data)
+          console.log('game', data)
           return data
       }
   } catch (error) {
@@ -161,4 +161,36 @@ async function getGameByGenre (){
   }
 }
 
-getGameByGenre()
+const platform = ['<i class="fa-brands fa-windows"></i>', '<i class="fa-brands fa-apple"></i>', '<i class="fa-brands fa-linux"></i>']
+
+async function renderGameTab(){
+  try {
+      const data = await getGame()
+      const gameMenu = document.querySelector('#trending')
+      data.data.forEach((game) =>{
+        const div = document.createElement('div')
+        div.classList.add('item')
+        let mapping = game.platforms.reduce((o, k, i) => ({...o, [k]: platform[i]}), {})
+        console.log(Object.values(mapping))
+        let genre = game.genres.map((genre)=>{
+          genre = genre.charAt(0).toUpperCase() + genre.substr(1)
+          console.log(genre)
+        return genre})
+        div.innerHTML = `
+    <div class="item-img">
+      <img src="${game.header_image}" alt="">
+    </div>
+    <div class="item-desc">
+      <h3>${game.name}</h3>
+      <p class="platform-logo">${Object.values(mapping).join('')}</p>
+      <p class="genre">${genre.join(', ')}</p>
+      <p class="item-price">${(game.price == '0') ? 'Free To Play' : `$${game.price}`}</p>
+    </div>`
+      gameMenu.appendChild(div)
+})
+  } catch (error) {
+    console.log('err', error)
+  }
+}
+renderGameTab()
+getGame()
