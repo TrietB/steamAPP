@@ -1,16 +1,18 @@
-const ALL_GAMES_API = 'https://cs-steam-api.herokuapp.com/games'
-const GENRES_API = 'https://cs-steam-api.herokuapp.com/genres'
-const TAGS_API = 'https://cs-steam-api.herokuapp.com/steamspy-tags'
-const SIINGLE_GAME_API = 'https://cs-steam-api.herokuapp.com/single-game/:appid'
-const FEATURED_API = 'https://cs-steam-api.herokuapp.com/features'
+const ALL_GAMES_API = 'https://cs-steam-game-api.herokuapp.com/games'
+const GENRES_API = 'https://cs-steam-game-api.herokuapp.com/genres'
+const TAGS_API = 'https://cs-steam-game-api.herokuapp.com/steamspy-tags'
+const SIINGLE_GAME_API = 'https://cs-steam-game-api.herokuapp.com/single-game/:appid'
+const FEATURED_API = 'https://cs-steam-game-api.herokuapp.com/features'
 
 
-
+let requestOptions ={
+  method:'GET',
+  redirect: 'follow'
+}
 
 
 let slideIndex = 1
-
-
+// showSlides(slideIndex)
 
 function plusSlides(n){
     showSlides(slideIndex += n )
@@ -42,7 +44,7 @@ function showSlides(n) {
 
 async function getFeaturedGames(){
     try {
-        const featuredGames = await fetch(FEATURED_API)
+        const featuredGames = await fetch(FEATURED_API, requestOptions)
         if(featuredGames.ok){
             const data = await featuredGames.json()
             console.log('games', data)
@@ -85,7 +87,6 @@ async function renderFeaturedGames(){
               </div>
               </div>`
               slideShow.appendChild(div)
-              console.log(slideShow)
             }else{
               div.innerHTML = `
               <div class="featured-image">
@@ -116,14 +117,14 @@ async function renderFeaturedGames(){
           const dot = document.createElement('span')
           dot.innerHTML = `<span class="dot" onclick="currentSlide(${index + 1})"></span>`
           dot_arr.appendChild(dot)
-          console.log(dot_arr)
         })
         showSlides(slideIndex)
     } catch (error) {
         console.log('err', error)
     }
 }
-renderFeaturedGames()
+
+window.addEventListener('onload', renderFeaturedGames())
 
 
 function openCity(evt, cityName) {
@@ -145,4 +146,19 @@ function openCity(evt, cityName) {
     // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+
+async function getGameByGenre (){
+  try {
+      const gameByGenre = await fetch(`${ALL_GAMES_API}&page=10`, requestOptions)
+      if(gameByGenre.ok){
+          const data = await gameByGenre.json()
+          console.log('genre', data)
+          return data
+      }
+  } catch (error) {
+    console.log('err', error)
   }
+}
+
+getGameByGenre()

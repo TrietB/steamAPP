@@ -490,6 +490,7 @@ width: 75%;
 /* game menu */
 .game-menu{
   background-color: #2a475e;
+  min-height: 700px;
 }
 
 
@@ -564,6 +565,9 @@ width: 75%;
   max-width: 800px;
   margin: 0 auto;
 }
+#trending{
+  display: block;
+}
 /* game item */
 .item{
   display: flex;
@@ -575,10 +579,19 @@ width: 75%;
   background: rgba( 0, 0, 0, 0.2 );
   position: relative;
 }
+.item:hover{
+  background: linear-gradient( to right, #c6e6f8 5%,#95bcd3 95%);
+}
+.item:hover h3, .item:hover p{
+  color: #1B2838;
+}
 .item p, .item h3{
   color: #c7d5e0;
 }
 
+.platform-logo i{
+  padding-right: 10px;
+}
 .item h3{
   margin: 12px 0 10px 10px;
 }
@@ -599,8 +612,56 @@ height: 100%;
 
 .item-price{
   position: absolute;
-  right: 0;
+  right: 10px;
   top: 35%;
+
 }
 
+
+/* -------singlepage css ------------ */
+.homepage-body > img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+.game-content{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 940px;
+  top: 90px;
+}
+.game-info h3{
+  color: white;
+  font-family: sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-left: 20px;
+}
+.game-info > p{
+  color: #c6d4df;
+  line-height: 24px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.title{
+  display: inline-block;
+  margin-left: 10px;
+  color: #556772;
+}
+.title-content{
+  display: inline-block;
+  text-decoration: none;
+  color: #66c0f4;
+}
+.title-content:hover{
+  color: white;
+  cursor: pointer;
+}
 
