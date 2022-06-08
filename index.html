@@ -149,10 +149,10 @@
 <section class="game-menu">
   <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks bd-left" onclick="openCity(event, 'trending')">New & Trending</button>
-  <button class="tablinks" onclick="openCity(event, 'top')">Top Sellers</button>
-  <button class="tablinks" onclick="openCity(event, 'popular')">Popular Upcoming</button>
-  <button class="tablinks bd-right" onclick="openCity(event, 'special')">Special</button>
+  <button class="tablinks bd-left" onclick="openTab(event, 'trending')">New & Trending</button>
+  <button class="tablinks" onclick="openTab(event, 'top')">Top Sellers</button>
+  <button class="tablinks" onclick="openTab(event, 'popular')">Popular Upcoming</button>
+  <button class="tablinks bd-right" onclick="openTab(event, 'special')">Special</button>
 
 </div>
 
@@ -172,7 +172,7 @@
 </div>
 
 <div id="top" class="tabcontent">
-  <div class="item">
+  <!-- <div class="item">
     <div class="item-img">
       <img src="./assets/game_img/EldenRing/eldenringBig.jpg" alt="">
     </div>
@@ -182,11 +182,11 @@
       <p class="genre">Adventure, RPG</p>
       <p class="item-price">$59.99</p>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <div id="popular" class="tabcontent">
-  <div class="item">
+  <!-- <div class="item">
     <div class="item-img">
       <img src="./assets/game_img/EldenRing/eldenringBig.jpg" alt="">
     </div>
@@ -195,11 +195,12 @@
       <p class="platform-logo"><i class="fa-brands fa-apple"></i><i class="fa-brands fa-windows"></i></p>
       <p class="genre">Adventure, RPG</p>
       <p class="item-price">$59.99</p>
+      <p class="release-date"></p>
     </div>
-  </div>
+  </div> -->
 </div>
 <div id="special" class="tabcontent">
-  <div class="item">
+  <!-- <div class="item">
     <div class="item-img">
       <img src="./assets/game_img/EldenRing/eldenringBig.jpg" alt="">
     </div>
@@ -209,9 +210,55 @@
       <p class="genre">Adventure, RPG</p>
       <p class="item-price">$59.99</p>
     </div>
-  </div>
+  </div> -->
 </div>
 </section>
+ <!-- footer -->
+ <footer>
+  <div class="recommendations-container">
+    <div class="recommendations">
+      <h1>Looking for recommendations?</h1>
+      <h4>Sign in to view personalized recommendations</h4>
+      <button type="button" name="button">Sign in</button>
+      <h4>or <span class="bold">sign up</span> and join Steam for free</h4>
+    </div>
+  </div>
+  <div class="legal-container">
+    <div class="legal">
+      <hr>
+      <div class="legal-top">
+        <div class="">
+          <img src="https://steamstore-a.akamaihd.net/public/images/v6/logo_valve_footer.png" alt="Valve Software" border="0">
+        </div>
+        <div class="legal-top-text">
+          <p>© 2018 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.
+            VAT included in all prices where applicable.
+          </p>
+          <div class="side-step">
+            <a href="#">Privacy Policy</a>
+            &nbsp;|&nbsp;
+            <a href="#">Legal</a>
+            &nbsp;|&nbsp;
+            <a href="#">Steam Subscriber Agreement</a>
+            &nbsp;|&nbsp;
+            <a href="#">Refunds</a>
+          </div>
+        </div>
+        <img src="https://steamstore-a.akamaihd.net/public/images/v6/logo_steam_footer.png" alt="Valve Software" border="0">
+      </div>
+      <hr>
+      <div class="legal-bottom">
+        <a href="#">About Valve</a>
+        <a href="#">Steamworks</a>
+        <a href="#">Jobs</a>
+        <a href="#">Steam Distribution</a>
+        <a href="#">Gift Cards</a>
+        <a href="#">Steam</a>
+        <a href="#">@steam-games</a>
+      </div>
+    </div>
+  </div>
+</footer>
 <script src="./index.js"></script>
 </body>
 </html>
