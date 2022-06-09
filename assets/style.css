@@ -444,7 +444,23 @@ width: 75%;
   height: 380px;
   justify-content: space-between;
   margin-bottom: 20px;
+  overflow: auto;
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  border: 1px solid yellowgreen;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: yellowgreen;  
+  border-radius: 10px;
+  }
+
+
 .special .special-image {
   width: 100%;
   height: 260px;
@@ -473,18 +489,31 @@ width: 75%;
 }
 
 .special3 {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
+  margin: 0 20px */
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 10px;
+  column-gap: 5px;
 }
 
 .special3-1 {
   background-image: url("https://store.steampowered.com/public/images/v6/home/background_spotlight.jpg");
   height: 185px;
 }
+.special3-1 >img{
+  width: 300px;
+}
 .special3-1 .price {
   float: right;
   padding-right: 10px;
+}
+
+.special3-1:hover{
+  cursor: pointer;
 }
 /* bodynav end */
 /* game menu */
@@ -526,11 +555,15 @@ width: 75%;
   /* background: #1B2838; */
   border: none;
   /* border-radius: 10px; */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
 
 }
 .bd-left, .bd-left:hover, .bd-left.active{
   border-top-left-radius: 0px;
   background-color: #2a475e;
+  
 }
 /* .bd-left:hover{
   border-top-left-radius: 0px;
@@ -546,13 +579,14 @@ width: 75%;
 /* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #2a475e;
-
+  font-size: larger;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
   background-color: #2a475e;
-  
+  font-size: larger;
+  text-decoration: underline ;
 }
 
 /* Style the tab content */
@@ -565,12 +599,12 @@ width: 75%;
   right: 0;
   min-width: 800px;
   margin: 0 auto;
-}
-#trending, #top{
-  display: none;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+#trending{
+  display: flex;
 }
 /* game item */
 .item{

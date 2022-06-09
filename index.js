@@ -126,9 +126,9 @@ function openTab(evt, tabName) {
 
 async function getGame(limit) {
   try {
-    const gameByGenre = await fetch(`${ALL_GAMES_API}?page=1&limit=${limit}`, requestOptions)
-    if (gameByGenre.ok) {
-      const data = await gameByGenre.json()
+    const gameData = await fetch(`${ALL_GAMES_API}?page=2&limit=${limit}`, requestOptions)
+    if (gameData.ok) {
+      const data = await gameData.json()
       // console.log('game', data)
       return data
     }
@@ -149,8 +149,10 @@ async function renderGameTab() {
     console.log('err', error)
   }
 }
+
+document.addEventListener('load', renderGameTab())
 async function filterGameByRD(){
-    const data = await getGame(500)
+    const data = await getGame(200)
     let startDate = new Date('2019-12-31')
     let endDate = new Date('2018-10-01')
     console.log('start',startDate, 'end' ,endDate)
@@ -165,6 +167,55 @@ async function filterGameByRD(){
 }
 filterGameByRD()
 
+async function fetchGameByGenre(limit, genres){
+  try {
+    const gameByGenre = await fetch(`${ALL_GAMES_API}?page=2&limit=${limit}&genres=${genres}`, requestOptions)
+    const totalGenres = await fetch(`${GENRES_API}`)
+    if (gameByGenre.ok) {
+      const data = await gameByGenre.json()
+      // const data1 = await totalGenres.json()
+      // console.log('game', data)
+      // console.log('genres', data1)
+      return data
+    }
+  } catch (error) {
+    console.log('err', error)
+  }
+}
+fetchGameByGenre(9, 'action')
+
+
+async function renderGameByGenre(genre){
+  const data = await fetchGameByGenre(9, genre)
+  const gameMenu = document.getElementById('genre')
+  const genreTitle = document.getElementById('title')
+  gameMenu.innerHTML = ''
+  data.data.forEach((game) => {
+    const div = document.createElement('div')
+    div.classList.add('special3-1')
+    div.setAttribute('id', `${game.appid}`)
+    div.innerHTML=`
+    <div class="special3-1" id="${game.appid}">
+          <img src="${game.header_image}" alt="">
+          <div class="special-text">
+            <img src="./assets/img/price.PNG" alt="" class="price">
+          </div>
+        </div>
+    `
+    genreTitle.innerText = `${genre.charAt(0).toUpperCase() + genre.substr(1)}`
+    gameMenu.appendChild(div)
+    
+  })
+  let itemClick = document.getElementsByClassName('special3-1')
+    // console.log(itemClick)
+    for (let i = 0; i < itemClick.length; i++) {
+      itemClick[i].addEventListener('click', function () {
+        window.location.href = 'http://127.0.0.1:5500/single-page.html'
+        localStorage.setItem('id', `${this.id}`)
+      })
+    }
+}
+renderGameByGenre('action')
 
 function renderGameItem(game, gameMenu) {
     let mapping = game.platforms.reduce((o, k, i) => ({ ...o, [k]: platform[i] }), {})

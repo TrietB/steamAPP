@@ -85,21 +85,18 @@
     <a href="#">Virtual Reality</a>
     <a href="#">Steam Controller Friendly</a>
     <h5>BROWSE BY GENRE</h5>
-    <a href="#">Free to Play</a>
-    <a href="#">Early Access</a>
-    <a href="">Action</a>
-    <a href="#">Adventure</a>
-    <a href="#">Casual</a>
-    <a href="#">Indie</a>
-    <a href="#">Massively Multiplayer</a>
-    <a href="#">Racing</a>
-    <h5>RECENTLY VIEWED</h5>
-    <a href="#">Aztez</a>
-    <a href="#">Tooth and Tail</a>
-    <a href="#">RimWorld</a>
+    <a href="#title" onclick="renderGameByGenre('free to play')">Free to Play</a>
+    <a href="#title" onclick="renderGameByGenre('action')" >Action</a>
+    <a href="#title" onclick="renderGameByGenre('adventure')">Adventure</a>
+    <a href="#title" onclick="renderGameByGenre('casual')">Casual</a>
+    <a href="#title" onclick="renderGameByGenre('rpg')">RPG</a>
+    <a href="#title" onclick="renderGameByGenre('indie')">Indie</a>
+    <a href="#title" onclick="renderGameByGenre('strategy')">Strategy</a>
+    <a href="#title" onclick="renderGameByGenre('simulation')">Simulation</a>
+
   </div>
 
-  <div class="main">
+  <div class="main" id="main">
     <!-- featured section -->
     <h3 class="title">FEATURED & RECOMMENDED</h3>
   <div id="slideshow-container">  
@@ -113,21 +110,27 @@
     
   </div>
     <!-- special section -->
-    <h3 class="title">SPECIAL OFFERS</h3>
-    <div class="special">
-      <div class="special1">
-        <img src="./assets/img/mddesert.PNG" alt=""class="special-image">
-        <h5>FREE WEEKEND</h5>
-        <p>Play for free until Sunday at 1PM PST</p>
-        <img src="./assets/img/price.PNG" alt="" class="price">
-      </div>
-      <div class="special1">
-        <img src="./assets/img/mddivision.PNG" alt="" class="special-image">
-        <h5>FREE WEEKEND</h5>
-        <p>Play for free until Sunday at 1PM PST</p>
-        <img src="./assets/img/price.PNG" alt="" class="price">
-      </div>
-      <div class="special3">
+    <h3 class="title" id="title">SPECIAL OFFERS</h3>
+    <div class="special" >
+      <div class="special3" id="genre">
+        <!-- <div class="special3-1">
+          <img src="./assets/img/mdshorthell.PNG" alt="">
+          <div class="special-text">
+            <img src="./assets/img/price.PNG" alt="" class="price">
+          </div>
+        </div>
+        <div class="special3-1">
+          <img src="./assets/img/mdshortwizard.PNG" alt="">
+          <div class="special-text">
+            <img src="./assets/img/price.PNG" alt="" class="price">
+          </div>
+        </div>
+        <div class="special3-1">
+          <img src="./assets/img/mdshorthell.PNG" alt="">
+          <div class="special-text">
+            <img src="./assets/img/price.PNG" alt="" class="price">
+          </div>
+        </div>
         <div class="special3-1">
           <img src="./assets/img/mdshorthell.PNG" alt="">
           <div class="special-text">
@@ -140,7 +143,26 @@
             <img src="./assets/img/price.PNG" alt="" class="price">
           </div>
         </div>
+        <div class="special3-1">
+          <img src="./assets/img/mdshortwizard.PNG" alt="">
+          <div class="special-text">
+            <img src="./assets/img/price.PNG" alt="" class="price">
+          </div>
+        </div>
+        <div class="special3-1">
+          <img src="./assets/img/mdshortwizard.PNG" alt="">
+          <div class="special-text">
+            <img src="./assets/img/price.PNG" alt="" class="price">
+          </div>
+        </div>
+        <div class="special3-1">
+          <img src="./assets/img/mdshortwizard.PNG" alt="">
+          <div class="special-text">
+            <img src="./assets/img/price.PNG" alt="" class="price">
+          </div>
+        </div> -->
       </div>
+      
     </div>
   
   </div>
