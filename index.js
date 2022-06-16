@@ -4,13 +4,14 @@ const TAGS_API = 'https://cs-steam-game-api.herokuapp.com/steamspy-tags'
 const SINGLE_GAME_API = 'https://cs-steam-game-api.herokuapp.com/single-game/:appid'
 const FEATURED_API = 'https://cs-steam-game-api.herokuapp.com/features'
 
+const platform = ['<i class="fa-brands fa-windows"></i>', '<i class="fa-brands fa-apple"></i>', '<i class="fa-brands fa-linux"></i>']
 
 let requestOptions = {
   method: 'GET',
   redirect: 'follow'
 }
 
-
+//carousel
 let slideIndex = 1
 // showSlides(slideIndex)
 
@@ -41,6 +42,18 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
+async function getGame(limit) {
+  try {
+    const gameData = await fetch(`${ALL_GAMES_API}?page=2&limit=${limit}`, requestOptions)
+    if (gameData.ok) {
+      const data = await gameData.json()
+      // console.log('game', data)
+      return data
+    }
+  } catch (error) {
+    console.log('err', error)
+  }
+}
 
 async function getFeaturedGames() {
   try {
@@ -100,8 +113,6 @@ async function renderFeaturedGames() {
   }
 }
 
-window.addEventListener('onload', renderFeaturedGames())
-
 
 function openTab(evt, tabName) {
   // Declare all variables
@@ -124,20 +135,6 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
-async function getGame(limit) {
-  try {
-    const gameData = await fetch(`${ALL_GAMES_API}?page=2&limit=${limit}`, requestOptions)
-    if (gameData.ok) {
-      const data = await gameData.json()
-      // console.log('game', data)
-      return data
-    }
-  } catch (error) {
-    console.log('err', error)
-  }
-}
-
-const platform = ['<i class="fa-brands fa-windows"></i>', '<i class="fa-brands fa-apple"></i>', '<i class="fa-brands fa-linux"></i>']
 
 async function renderGameTab() {
   try {
@@ -150,7 +147,6 @@ async function renderGameTab() {
   }
 }
 
-document.addEventListener('load', renderGameTab())
 async function filterGameByRD(){
     const data = await getGame(200)
     let startDate = new Date('2019-12-31')
@@ -165,12 +161,11 @@ async function filterGameByRD(){
     const gameMenu = document.getElementById('top')
     filterGame.forEach((game)=> renderGameItem(game,gameMenu))
 }
-filterGameByRD()
 
 async function fetchGameByGenre(limit, genres){
   try {
     const gameByGenre = await fetch(`${ALL_GAMES_API}?page=2&limit=${limit}&genres=${genres}`, requestOptions)
-    const totalGenres = await fetch(`${GENRES_API}`)
+    // const totalGenres = await fetch(`${GENRES_API}`)
     if (gameByGenre.ok) {
       const data = await gameByGenre.json()
       // const data1 = await totalGenres.json()
@@ -182,7 +177,6 @@ async function fetchGameByGenre(limit, genres){
     console.log('err', error)
   }
 }
-fetchGameByGenre(9, 'action')
 
 
 async function renderGameByGenre(genre){
@@ -204,18 +198,16 @@ async function renderGameByGenre(genre){
     `
     genreTitle.innerText = `${genre.charAt(0).toUpperCase() + genre.substr(1)}`
     gameMenu.appendChild(div)
-    
   })
   let itemClick = document.getElementsByClassName('special3-1')
     // console.log(itemClick)
     for (let i = 0; i < itemClick.length; i++) {
-      itemClick[i].addEventListener('click', function () {
+      itemClick[i].addEventListener('click', () => {
         window.location.href = 'http://127.0.0.1:5500/single-page.html'
         localStorage.setItem('id', `${this.id}`)
       })
     }
 }
-renderGameByGenre('action')
 
 function renderGameItem(game, gameMenu) {
     let mapping = game.platforms.reduce((o, k, i) => ({ ...o, [k]: platform[i] }), {})
@@ -255,6 +247,8 @@ function renderGameItem(game, gameMenu) {
 }
 
 
-
-
+window.addEventListener('onload', renderFeaturedGames())
+window.addEventListener('onload', renderGameTab())
+renderGameByGenre('action')
+filterGameByRD()
 renderGameTab()
